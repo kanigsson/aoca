@@ -35,7 +35,9 @@ procedure Main with SPARK_Mode is
    File : Ada.Text_IO.File_Type;
    Sum : Integer := 0;
 begin
-
+   if Ada.Command_Line.Argument_Count < 1 then
+      return;
+   end if;
    Ada.Text_IO.Open (File => File,
          Mode => Ada.Text_IO.In_File,
          Name => Ada.Command_Line.Argument (1));
